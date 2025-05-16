@@ -50,13 +50,12 @@ public class MenuService {
                         break;
                     case 5:
                         System.out.println("Thank you for your generosity!");
+                        DonationService donationService = new DonationService(accountService);
                         if (accountService.getCurrentCustomer() != null) {
-                            accountService.viewAccount();
+                            donationService.launch(accountService.getCurrentCustomer());
                         } else {
                             System.out.println("No account found. Please register first so your donation can be rewarded!");
                         }
-                        DonationService donationService = new DonationService(accountService);
-                        donationService.launch(accountService.getCurrentCustomer());
                         break;
                     case 6:
                         System.out.println("Have a great day!");
